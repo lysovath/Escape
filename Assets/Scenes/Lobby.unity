@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -593,6 +594,36 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78f5605b7ded4d14b2462c9204261d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  focusOffset: {x: 0, y: 1, z: 0}
+  distance: 7
+  pitch: 20
+  yaw: 0
+  followSmoothTime: 0.08
+  enableOrbitControl: 1
+  orbitWithoutHoldingRightClick: 1
+  lockCursorOnStart: 1
+  lookSensitivity: {x: 0.15, y: 0.12}
+  minPitch: -15
+  maxPitch: 65
+  avoidObstacles: 1
+  collisionRadius: 0.25
+  minDistance: 1.2
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &376228719
 PrefabInstance:
   m_ObjectHideFlags: 0
