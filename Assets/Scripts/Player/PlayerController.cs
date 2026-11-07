@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private bool isSprinting;
     private bool isGrounded;
 
+    [SerializeField] private ButtonManager bm;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -92,6 +94,14 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection) * Quaternion.Euler(0f, 90f, 0f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Button"))
+        {
+            bm.HitButton(collision.collider.GetComponent<Button>());
         }
     }
 
