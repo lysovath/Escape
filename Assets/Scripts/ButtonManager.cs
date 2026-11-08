@@ -12,7 +12,7 @@ public class ButtonManager : MonoBehaviour
         {
             button.SetState(ButtonState.UNCLICKABLE);
         }
-        buttons[^1].SetState(ButtonState.CLICKABLE);
+        buttons[0].SetState(ButtonState.CLICKABLE);
     }
 
     // Update is called once per frame
@@ -25,14 +25,21 @@ public class ButtonManager : MonoBehaviour
     {
         if(buttons.Count == 0) return;
 
-        if(button == buttons[^1])
+        if(button == buttons[0])
         {
             button.SetState(ButtonState.CLICKED);
-            buttons.RemoveAt(buttons.Count - 1);
+
+            foreach(ButtonAction btn in button.GetActions())
+            {
+                Debug.Log("Hit");
+                btn.Execute();
+            }
+
+            buttons.RemoveAt(0);
 
             if(buttons.Count == 0) return;
 
-            buttons[^1].SetState(ButtonState.CLICKABLE);
+            buttons[0].SetState(ButtonState.CLICKABLE);
         }
     }
 }

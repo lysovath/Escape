@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -6,20 +8,26 @@ public enum ButtonState : int {
     CLICKABLE,
     UNCLICKABLE
 };
+
 public class Button : MonoBehaviour
 {
 
     [SerializeField] ButtonState btnState = ButtonState.UNCLICKABLE;
 
+    [SerializeField] List<ButtonAction> actions;
     [SerializeField] Renderer rend;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
-
+        actions = GetComponents<ButtonAction>().ToList();
         // ResolveBtnState();
     }
 
+    public List<ButtonAction> GetActions()
+    {
+        return actions;
+    }
     void ResolveBtnState()
     {
         Material mat = Resources.Load<Material>("Materials/Buttons/Mat_ButtonClicked");
