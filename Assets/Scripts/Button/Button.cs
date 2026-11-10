@@ -14,7 +14,7 @@ public class Button : MonoBehaviour
 
     [SerializeField] ButtonState btnState = ButtonState.UNCLICKABLE;
 
-    [SerializeField] List<ButtonAction> actions;
+    List<ButtonAction> actions;
     [SerializeField] Renderer rend;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
