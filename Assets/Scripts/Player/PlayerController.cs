@@ -113,10 +113,32 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Lava"))
+        {
+            Die();
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Button"))
         {
             bm.HitButton(collision.collider.GetComponent<Button>());
         }
+    }
+
+    // Also works if the lava collider is set to "Is Trigger"
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Lava"))
+        {
+            Die();
+        }
+    }
+
+    // Kill the player when touching lava
+    private void Die()
+    {
+        Debug.Log("Game Over! Player touched lava.");
+        Destroy(gameObject);
     }
 
     // Check when the player is touching the ground
