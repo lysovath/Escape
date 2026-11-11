@@ -25,6 +25,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Prevent the player capsule from tipping over
 
+        // Give every player collider zero friction so the player slides off walls and edges instead of sticking
+        PhysicsMaterial noFriction = new PhysicsMaterial("NoFriction");
+        noFriction.dynamicFriction = 0f;
+        noFriction.staticFriction = 0f;
+        noFriction.frictionCombine = PhysicsMaterialCombine.Minimum;
+
+        foreach (Collider col in GetComponentsInChildren<Collider>())
+        {
+            col.material = noFriction;
+        }
+
         if (cameraTransform == null && Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
@@ -46,6 +57,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Reset every physics step; OnCollisionStay sets it back to true if we are still standing on something
+        isGrounded = false;
+
         MovePlayer();
     }
 
@@ -117,10 +131,5 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        isGrounded = false;
     }
 }
