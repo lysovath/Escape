@@ -9,9 +9,13 @@ public class SpawnButton : ButtonAction
     [SerializeField] private Vector3 position;
 
     [SerializeField] private Vector3 rotation;
+
+    [SerializeField] private Vector3 scale = new Vector3(1f, 1f, 1f);
     public override void Execute()
     {
-        Instantiate(prefeb, position, Quaternion.Euler(rotation));
+            
+        GameObject newObj = Instantiate(prefeb, position, Quaternion.Euler(rotation));
+        newObj.transform.localScale = scale;
     }
 
 }
