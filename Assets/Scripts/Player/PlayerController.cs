@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isSprinting;
     private bool isGrounded;
 
-    [SerializeField] private ButtonManager bm;
+    [SerializeField] private GameManager bm;
 
     private void Start()
     {

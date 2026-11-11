@@ -1137,6 +1137,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6084160779455267306, guid: 72e45b84ca850774586e32257eab51ea, type: 3}
   m_PrefabInstance: {fileID: 220557405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &226630550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9205823349591988554, guid: e7f77ddb921542941be3be698783a498, type: 3}
+  m_PrefabInstance: {fileID: 781544447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &226630555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226630550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2a24ed0581459097dd397d93f0b011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaRise
+  riseSpeed: 1
+  minY: -1
+  maxY: 3.94
 --- !u!4 &229483798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5391508341240035431, guid: ec5d6a2f49032d841b0564b7cad8dafe, type: 3}
@@ -6773,6 +6793,24 @@ MonoBehaviour:
   - {fileID: 1859084270}
   - {fileID: 2137257318}
   - {fileID: 721625589}
+  lava: {fileID: 226630555}
+  lavaSchedule:
+  - time: 0
+    riseSpeed: 0
+  - time: 5
+    riseSpeed: 0.25
+  - time: 12
+    riseSpeed: 0
+  - time: 22
+    riseSpeed: 0.3
+  - time: 24.8
+    riseSpeed: 0
+  - time: 42
+    riseSpeed: 0.2
+  - time: 45
+    riseSpeed: 0
+  - time: 53
+    riseSpeed: 0.25
 --- !u!4 &355765924
 Transform:
   m_ObjectHideFlags: 0
@@ -10167,7 +10205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 87436489007598146, guid: e7f77ddb921542941be3be698783a498, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 87436489007598146, guid: e7f77ddb921542941be3be698783a498, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10205,6 +10243,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9016405520486325536, guid: e7f77ddb921542941be3be698783a498, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016405520486325536, guid: e7f77ddb921542941be3be698783a498, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9205823349591988554, guid: e7f77ddb921542941be3be698783a498, type: 3}
       propertyPath: m_Name
       value: Lava
@@ -10212,7 +10258,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9205823349591988554, guid: e7f77ddb921542941be3be698783a498, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 226630555}
   m_SourcePrefab: {fileID: 100100000, guid: e7f77ddb921542941be3be698783a498, type: 3}
 --- !u!1001 &786762973
 PrefabInstance:
