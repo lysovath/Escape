@@ -13,10 +13,26 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform cameraTransform;
 
+    [Header("Audio Clips")]
+    public AudioClip jumpSound;
+    public AudioClip landSound;
+    public AudioClip footstepSound;
+    public AudioClip runFootstepSound;
+    public AudioClip lavaDeathSound;
+    public AudioClip buttonPressSound;
+
+    [Header("Footstep Timing & Volume")]
+    public float walkStepInterval = 0.4f;
+    public float runStepInterval = 0.65f;
+    [Range(0f, 1f)] public float footstepVolume = 0.25f;
+
     private Rigidbody rb;
+    private AudioSource audioSource;
     private Vector2 moveInput;
     private bool isSprinting;
     private bool isGrounded;
+    private bool wasGrounded = true;
+    private float stepTimer;
 
     [SerializeField] private GameManager bm;
 
@@ -24,6 +40,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Prevent the player capsule from tipping over
+
+        // Get or add an AudioSource on the Player to play sound effects
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         // Give every player collider zero friction so the player slides off walls and edges instead of sticking
         PhysicsMaterial noFriction = new PhysicsMaterial("NoFriction");
@@ -45,6 +68,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ReadInput();
+        HandleFootstepAudio();
 
         // Jump when pressing Space while on the ground
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
@@ -52,12 +76,14 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            PlaySound(jumpSound);
         }
     }
 
     private void FixedUpdate()
     {
-        // Reset every physics step; OnCollisionStay sets it back to true if we are still standing on something
+        // Remember if we were grounded last physics step, then reset before OnCollisionStay runs
+        wasGrounded = isGrounded;
         isGrounded = false;
 
         MovePlayer();
@@ -111,6 +137,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void HandleFootstepAudio()
+    {
+        if (isGrounded && moveInput != Vector2.zero)
+        {
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                if (isSprinting && runFootstepSound != null)
+                {
+                    PlaySound(runFootstepSound, footstepVolume);
+                    stepTimer = runStepInterval;
+                }
+                else
+                {
+                    PlaySound(footstepSound, footstepVolume);
+                    stepTimer = walkStepInterval;
+                }
+            }
+        }
+        else
+        {
+            stepTimer = 0f;
+        }
+    }
+
+    private void PlaySound(AudioClip clip, float volume = 1f)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip, volume);
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Lava"))
@@ -121,7 +180,11 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Button"))
         {
-            bm.HitButton(collision.collider.GetComponent<Button>());
+            PlaySound(buttonPressSound);
+            if (bm != null)
+            {
+                bm.HitButton(collision.collider.GetComponent<Button>());
+            }
         }
     }
 
@@ -138,6 +201,13 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("Game Over! Player touched lava.");
+
+        // PlayClipAtPoint plays the sound in the world so it doesn't get cut off when the Player is destroyed
+        if (lavaDeathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(lavaDeathSound, transform.position);
+        }
+
         Destroy(gameObject);
     }
 
@@ -149,6 +219,10 @@ public class PlayerController : MonoBehaviour
             // If the surface normal points upward, the player is standing on ground
             if (contact.normal.y > 0.5f)
             {
+                if (!wasGrounded && !isGrounded)
+                {
+                    PlaySound(landSound);
+                }
                 isGrounded = true;
                 return;
             }
