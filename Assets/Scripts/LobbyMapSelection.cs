@@ -60,7 +60,6 @@ public class LobbyMapSelection : MonoBehaviour
 
         player.enabled = false;
         followCamera.enabled = false;
-        // Freeze the body. Do not switch isKinematic or the popup opens again.
         body.constraints = RigidbodyConstraints.FreezeAll;
         if (!body.isKinematic)
         {
@@ -97,7 +96,6 @@ public class LobbyMapSelection : MonoBehaviour
     public void LoadMap1()
     {
         if (!open) return;
-        // Unity wants the scene name, not Assets/Scenes/Map1.unity.
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(mapScene);
         if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
