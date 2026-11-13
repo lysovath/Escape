@@ -469,7 +469,7 @@ MonoBehaviour:
   popup: {fileID: 713878818}
   player: {fileID: 2081512696}
   followCamera: {fileID: 330585548}
-  mapScene: Assets/Scenes/Map1.unity
+  mapScene: Map1
 --- !u!65 &115736677
 BoxCollider:
   m_ObjectHideFlags: 0

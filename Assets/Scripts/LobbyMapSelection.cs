@@ -8,7 +8,7 @@ public class LobbyMapSelection : MonoBehaviour
     [SerializeField] GameObject popup;
     [SerializeField] PlayerController player;
     [SerializeField] CameraFollow followCamera;
-    [SerializeField] string mapScene = "Assets/Scenes/Map1.unity";
+    [SerializeField] string mapScene = "Map1";
 
     int inside;
     bool open;
@@ -97,13 +97,15 @@ public class LobbyMapSelection : MonoBehaviour
     public void LoadMap1()
     {
         if (!open) return;
-        if (!Application.CanStreamedLevelBeLoaded(mapScene))
+        // Unity wants the scene name, not Assets/Scenes/Map1.unity.
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(mapScene);
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
             Debug.LogError("Map1 is not in Build Settings.", this);
             return;
         }
         Close();
-        SceneManager.LoadScene(mapScene);
+        SceneManager.LoadScene(sceneName);
     }
 
     void OnDisable()
