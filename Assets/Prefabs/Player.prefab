@@ -304,6 +304,15 @@ MonoBehaviour:
   rotationSpeed: 12
   jumpForce: 4
   cameraTransform: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445511, type: 3}
+  landSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445512, type: 3}
+  footstepSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445513, type: 3}
+  runFootstepSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445514, type: 3}
+  lavaDeathSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445515, type: 3}
+  buttonPressSound: {fileID: 8300000, guid: a1b2c3d4e5f647118900112233445516, type: 3}
+  walkStepInterval: 0.4
+  runStepInterval: 0.65
+  footstepVolume: 0.25
   bm: {fileID: 0}
 --- !u!1 &8268301931995914247
 GameObject:
