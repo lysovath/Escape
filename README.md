@@ -1,6 +1,6 @@
 # Flood Escape (Unity 6)
 
-Race against rising hazards across different maps, touch buttons to unlock exit routes, and reach the safe zone before the chamber is submerged.
+Race against rising Lava across different maps, touch buttons to unlock exit routes, and reach the safe zone before the chamber is submerged.
 
 ---
 
@@ -10,7 +10,7 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 ---
 
 ## Rules
-* **Outrun the Rising Hazard:** Lava, acid, or water continuously rises throughout each stage. Falling into the hazard results in an instant loss.
+* **Outrun the Rising Lava:** Lava continuously rises throughout each stage. Falling into the Lava results in an instant loss.
 * **Activate Buttons in Order:** Locked doors, gates, and bridges require you to locate and touch buttons along the route to progress. Buttons follow a color-coded sequence:
   * 🟢 **Green (Active):** Ready to be pressed—touch this button to trigger the next path or unlock the next button.
   * 🟡 **Yellow (Pending):** Locked—not yet its turn to be pressed; activate the current green button first.
@@ -46,3 +46,14 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 
 ## Maps
 * **Volcanic Outpost:** A volcanic stronghold featuring narrow wall ledges, suspended rope bridges, stepping-stone lava crossings, and a final climb to an elevated escape structure.
+
+---
+
+## Member Contributions
+
+### Ngov Lysovath
+* **Level Design & Assets:** Built the majority of the **Volcanic Outpost** map and created reusable map prefabs.
+* **Gameplay Programming:**
+  * `Button` & `ButtonAction`: Implemented button state logic and map object triggers (enabling pre-placed objects to appear and deleting/disabling obstacles).
+  * `GameManager`: Managed the global button progression sequence across the map and controlled the rising lava flow mechanics.
+* **Audio:** Integrated background music for the gameplay experience.
