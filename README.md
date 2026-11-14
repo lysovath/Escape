@@ -57,3 +57,8 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
   * `Button` & `ButtonAction`: Implemented button state logic and map object triggers (enabling pre-placed objects to appear and deleting/disabling obstacles).
   * `GameManager`: Managed the global button progression sequence across the map and controlled the rising lava flow mechanics.
 * **Audio:** Integrated background music for the gameplay experience.
+
+### LINH RATH HENRY (wyze)
+* **Lobby:** Set up the lobby and the map selection area, including the wall, popup, and Volcanic Outpost picture.
+* **Map choice:** Wrote `LobbyMapSelection`. Standing on the pad opens the popup. The picture or Enter loads Map1. Escape or Close closes the popup.
+* **Rising lava:** Wrote `LavaRise`, which moves the lava up from a start height to a max height.
