@@ -43,6 +43,11 @@ public class GoalPoint : MonoBehaviour
                 {
                     collider.isTrigger = false;
                 }
+
+                if (WinLoseManager.Instance != null)
+                {
+                    WinLoseManager.Instance.WinGame();
+                }
                 
                 // foreach (Collider wallCollider in wallColliders)
                 // {
