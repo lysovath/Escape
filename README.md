@@ -1,4 +1,4 @@
-# Flood Escape (Unity 6)
+# Escape (Unity 6)
 
 Race against rising Lava across different maps, touch buttons to unlock exit routes, and reach the safe zone before the chamber is submerged.
 
