@@ -80,4 +80,5 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 ## Reference & Credit
 * Volcano by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/dwSigTeSMCo)
 * Music Create with Gemini(Model: 3.5 Flash-Lite)
+* Rock by Low-Poly Simple Nature Pack (https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153)
 
