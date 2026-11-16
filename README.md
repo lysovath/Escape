@@ -37,7 +37,7 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 3. Once the project loads, navigate to `Assets/Scenes` in the Project window.
 4. Open the **Lobby** scene (starter scene) and press **Play** in the Unity Editor.
 
-### Download Built Game
+### Download Built Game(Only for Window)
 1. Go to our github release
 2. Choose the version
 3. Download the zip file, with version on it(Not source code)
