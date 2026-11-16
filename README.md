@@ -30,10 +30,19 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 ---
 
 ## Setup & Installation
+
+### Clone Source Code
 1. Clone or download the repository to your local machine.
 2. Open **Unity Hub** and add the project folder using **Unity 6000.3.8f1**.
 3. Once the project loads, navigate to `Assets/Scenes` in the Project window.
 4. Open the **Lobby** scene (starter scene) and press **Play** in the Unity Editor.
+
+### Download Built Game
+1. Go to our github release
+2. Choose the version
+3. Download the zip file, with version on it(Not source code)
+4. Unzip the file
+5. Run Escape.exe(Every other file from the zip file must be presented in the same folder)
 
 ---
 
@@ -81,4 +90,9 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 * Volcano by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/dwSigTeSMCo)
 * Music Create with Gemini(Model: 3.5 Flash-Lite)
 * Rock by Low-Poly Simple Nature Pack (https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153)
+
+---
+
+## Video GamePlay
+Gameplay: https://drive.google.com/file/d/1-D4SOnunw0xmTX_IfhFMA2Cz3DHH4O8D/view?usp=sharing
 
