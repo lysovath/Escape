@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Lava"))
         {
             Die();
+            WinLoseManager.Instance.LoseGame();
             return;
         }
 
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Lava"))
         {
             Die();
+            WinLoseManager.Instance.LoseGame();
         }
     }
 

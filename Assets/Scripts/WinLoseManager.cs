@@ -71,25 +71,4 @@ public class WinLoseManager : MonoBehaviour
         SceneManager.LoadScene(lobbySceneName);
     }
 
-    private void OnTriggerEnter(Collider other) => CheckHazardOrGoal(other.gameObject);
-    private void OnCollisionEnter(Collision collision) => CheckHazardOrGoal(collision.gameObject);
-
-    private void CheckHazardOrGoal(GameObject hitObject)
-    {
-        if (isGameOver) return;
-
-        // Lava check
-        if (hitObject.name.ToLower().Contains("lava") ||
-            hitObject.GetComponentInParent<LavaRise>() != null ||
-            hitObject.tag == "Lava")
-        {
-            LoseGame();
-        }
-        // Goal check
-        else if (hitObject.GetComponentInParent<GoalPoint>() != null ||
-                 hitObject.name.ToLower().Contains("goal"))
-        {
-            WinGame();
-        }
-    }
 }
