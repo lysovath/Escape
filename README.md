@@ -75,3 +75,9 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 * **GoalPoint completion:** Configured trigger detection and boundary checks on the `GoalPoint` prefab to detect player arrival and trigger `WinGame()` to display the `WinBanner`.
 * **Interactive UI banners:** Designed and set up `WinBanner` and `LoseBanner` in the `Canvas`, wiring up responsive buttons for `PlayAgain()` / `TryAgain()` to reload the level and `ReturnToLobby()` to return to the lobby.
 
+---
+
+## Reference & Credit
+* Volcano by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/dwSigTeSMCo)
+* Music Create with Gemini(Model: 3.5 Flash-Lite)
+
