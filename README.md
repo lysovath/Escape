@@ -66,6 +66,7 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
   * `Button` & `ButtonAction`: Implemented button state logic and map object triggers (enabling pre-placed objects to appear and deleting/disabling obstacles).
   * `GameManager`: Managed the global button progression sequence across the map and controlled the rising lava flow mechanics.
 * **Audio:** Integrated background music for the gameplay experience.
+* **AI Usage**: Learnt how to change the sky color via skybox, Generate the level music
 
 ### LINH RATH HENRY (wyze)
 * **Lobby:** Set up the lobby and the map selection area, including the wall, popup, and Volcanic Outpost picture.
