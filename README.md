@@ -68,3 +68,10 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 * **Third-person camera:** Wrote `CameraFollow` and attached it to the `Main Camera` so the camera smoothly follows the player and rotates with mouse movement.
 * **Lava hazard & death:** Tagged the `Lava` prefab and added collision/trigger detection in `PlayerController` so touching lava kills the player (`Die()`).
 * **Player sound effects:** Added audio clips in `Assets/Audio/Player/` and hooked up sound effects in `PlayerController` for jumping, landing, walking/running footsteps, pressing buttons, and dying in lava.
+
+### [Sophat Panhaseth] (Panha-SeTh)
+* **Level design & environmental assets:** Built map structures across the `Volcanic Outpost`, decorated the environment with rock assets, and placed custom crate assets throughout the level.
+* **Win & lose game loop:** Wrote `WinLoseManager` to control victory and defeat states, pausing gameplay physics (`Time.timeScale = 0f`), stopping camera rotation in `CameraFollow`, and unlocking the mouse cursor when banners appear.
+* **GoalPoint completion:** Configured trigger detection and boundary checks on the `GoalPoint` prefab to detect player arrival and trigger `WinGame()` to display the `WinBanner`.
+* **Interactive UI banners:** Designed and set up `WinBanner` and `LoseBanner` in the `Canvas`, wiring up responsive buttons for `PlayAgain()` / `TryAgain()` to reload the level and `ReturnToLobby()` to return to the lobby.
+
