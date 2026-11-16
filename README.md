@@ -62,3 +62,9 @@ Navigate through obstacle courses, find and touch all required buttons in sequen
 * **Lobby:** Set up the lobby and the map selection area, including the wall, popup, and Volcanic Outpost picture.
 * **Map choice:** Wrote `LobbyMapSelection`. Standing on the pad opens the popup. The picture or Enter loads Map1. Escape or Close closes the popup.
 * **Rising lava:** Wrote `LavaRise`, which moves the lava up from a start height to a max height.
+
+### Sot Noreaksattya (sya)
+* **Player movement & physics:** Wrote `PlayerController` for camera-relative `WASD` movement, sprinting, and jumping, configured `Player.prefab` with a `Rigidbody`, and applied a zero-friction physics material so the player slides smoothly off walls and edges without getting stuck.
+* **Third-person camera:** Wrote `CameraFollow` and attached it to the `Main Camera` so the camera smoothly follows the player and rotates with mouse movement.
+* **Lava hazard & death:** Tagged the `Lava` prefab and added collision/trigger detection in `PlayerController` so touching lava kills the player (`Die()`).
+* **Player sound effects:** Added audio clips in `Assets/Audio/Player/` and hooked up sound effects in `PlayerController` for jumping, landing, walking/running footsteps, pressing buttons, and dying in lava.
